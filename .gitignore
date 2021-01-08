@@ -1,0 +1,4 @@
+BloodProfile/*.cache
+BloodProfile/.vscode/
+BloodProfile/bin/
+BloodProfile/obj/
