@@ -29,5 +29,24 @@ namespace BloodProfile.Controllers
             // render view using the model     
             return View(model);
         }
+        public PartialViewResult Details(Guid Id)
+        {
+            var model = _bloodWorkService.GetSpecificBloodWorkAsync(Id);
+            return PartialView(model);            
+        }
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddRecord(BloodWork newBloodWork)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+            var successful = await _bloodWorkService.AddRecordAsync(newBloodWork);
+            if (!successful)
+            {
+                return BadRequest("Record could not be added.");
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

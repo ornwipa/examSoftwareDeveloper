@@ -36,7 +36,8 @@ namespace BloodProfile
             services.AddControllersWithViews();
            services.AddRazorPages();
            services.AddMvc();
-           services.AddSingleton<IBloodWorkService, TempBloodWorkService>();
+           // services.AddSingleton<IBloodWorkService, DefaultBloodWorkService>();
+           services.AddScoped<IBloodWorkService, BloodWorkService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

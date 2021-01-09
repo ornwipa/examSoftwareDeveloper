@@ -1,0 +1,23 @@
+@model BloodProfile.Models.BloodWork
+
+<b>Add New Record</b>
+<p></p>
+<form asp-action="AddRecord" method="POST">
+    <p><label asp-for="DateCreated">Date Created:</label>
+    <input asp-for="DateCreated" type="date" placeholder="2021/01/11"></p>
+    <p><label asp-for="ExamDate">Exam Date:</label>
+    <input asp-for="ExamDate" type="date" placeholder="2021/mm/dd"></p>
+    <p><label asp-for="ResultsDate">Results Date:</label>
+    <input asp-for="ResultsDate" type="date" placeholder="2021/mm/dd"></p>
+    <p><label asp-for="Description">Description:</label>
+    <input asp-for="Description"></p>
+    <p><label asp-for="Hemoglobin">Hemoglobin (g/dl):</label>
+    <input asp-for="Hemoglobin" style="width: 50px"></p>
+    <p><label asp-for="Hematocrit">Hematocrit (%):</label>
+    <input asp-for="Hematocrit" style="width: 50px"></p>
+    <p><label asp-for="WhiteBloodCellCount">White blood cell counts (10<sup>9</sup> cells/L):</label>
+    <input asp-for="WhiteBloodCellCount" style="width: 50px"></p>
+    <p><label asp-for="RedBloodCellCount">Red blood cell counts (10<sup>12</sup> cells/L):</label>
+    <input asp-for="RedBloodCellCount" style="width: 50px"></p>
+    <p><button type="submit" class="btn btn-outline-secondary">Add</button></p>
+</form>

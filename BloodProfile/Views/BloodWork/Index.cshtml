@@ -12,7 +12,7 @@
       <thead>
           <tr>
               <td><b>Created Date</b></td>
-              <td><b>Exam Data</b></td>
+              <td><b>Exam Date</b></td>
               <td><b>Description</b></td>
               <td></td>
           </tr>
@@ -25,13 +25,13 @@
               <td>@item.ExamDate.Humanize()</td>
               <td>@item.Description</td>
               <td>
-                  <input type="button" value="Details" onclick="location.href='@Url.Action("Details", "BloodWork", new { id = item.Id })'" />
+                <input type="button" value="Details" onclick="location.href='@Url.Action("Details", "BloodWork", new { id = item.Id })'" />
               </td>
           </tr>
       }
   </table>
 
   <div class="panel-footer add-item-form">
-    <!-- TODO: Add item form -->
+    @await Html.PartialAsync("AddRecord", new BloodWork())
   </div>
 </div>
