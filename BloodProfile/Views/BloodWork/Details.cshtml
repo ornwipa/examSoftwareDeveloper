@@ -1,14 +1,19 @@
 @model BloodProfile.Models.BloodWork
 
+<b>Blood Work Details</b>
+<p></p>
 <div>
-    <dl class="row">
-        <p>Date Created: @Model.DateCreated</p>    
-        <p>Exam Date: @Model.ExamDate</p>
-        <p>Results Date: @Model.ResultsDate</p>
-        <p>Description: @Model.Description</p>
-        <p>Hemoglobin (g/dl): @Model.Hemoglobin</p>
-        <p>Hematocrit (%): @Model.Hematocrit</p>    
-        <p>White blood cell counts (10<sup>9</sup> cells/L): @Model.WhiteBloodCellCount</p>
-        <p>Red blood cell counts (10<sup>12</sup> cells/L): @Model.RedBloodCellCount</p>
-    </dl>
+        <p>Date Created: @Model.DateCreated</p><br />     
+        <p>Exam Date: @Model.ExamDate</p><br /> 
+        <p>Results Date: @Model.ResultsDate</p><br /> 
+        <p>Description: @Model.Description</p><br /> 
+        <p>Hemoglobin (g/dl): @Model.Hemoglobin</p><br /> 
+        <p>Hematocrit (%): @Model.Hematocrit</p><br />   
+        <p>White blood cell counts (10<sup>9</sup> cells/L): @Model.WhiteBloodCellCount</p><br /> 
+        <p>Red blood cell counts (10<sup>12</sup> cells/L): @Model.RedBloodCellCount</p><br /> 
+</div>
+<div>
+    <a asp-action="Index">Back to List</a> |
+    <a asp-action="EditRecord" asp-route-id="@Model.Id">Edit</a> |
+    
 </div>

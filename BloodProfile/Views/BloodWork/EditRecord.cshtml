@@ -1,49 +1,53 @@
 @model BloodProfile.Models.BloodWork
 
-<b>Add New Record</b>
+<b>Edit Blood Work</b>
 <p></p>
-<form asp-action="AddRecord" method="POST">
+<form asp-action="SaveEdit" method="POST">
     <p>
         <label asp-for="DateCreated">Date Created:</label>
-        <input asp-for="DateCreated" type="date" placeholder="2021/01/11">
+        <input asp-for="DateCreated" type="date" placeholder=@Model.DateCreated>
         <span asp-validation-for="DateCreated" class="text-danger"></span>
     </p>
     <p>
         <label asp-for="ExamDate">Exam Date:</label>
-        <input asp-for="ExamDate" type="date" placeholder="2021/01/11">
+        <input asp-for="ExamDate" type="date" placeholder=@Model.ExamDate>
         <span asp-validation-for="ExamDate" class="text-danger"></span>
     </p>
     <p>
         <label asp-for="ResultsDate">Results Date:</label>
-        <input asp-for="ResultsDate" type="date" placeholder="2021/01/11">
+        <input asp-for="ResultsDate" type="date" placeholder=@Model.ResultsDate>
         <span asp-validation-for="ResultsDate" class="text-danger"></span>
     </p>
     <p>
         <label asp-for="Description">Description:</label>
-        <input asp-for="Description"></p>
+        <input asp-for="Description" placeholder=@Model.Description></p>
         <span asp-validation-for="Description" class="text-danger"></span>
     <p>
         <label asp-for="Hemoglobin">Hemoglobin (g/dl):</label>
-        <input asp-for="Hemoglobin" style="width: 50px">
+        <input asp-for="Hemoglobin" style="width: 50px" placeholder=@Model.Hemoglobin>
         <span asp-validation-for="Hemoglobin" class="text-danger"></span>
     </p>
     <p>
         <label asp-for="Hematocrit">Hematocrit (%):</label>
-        <input asp-for="Hematocrit" style="width: 50px">
+        <input asp-for="Hematocrit" style="width: 50px" placeholder=@Model.Hematocrit>
         <span asp-validation-for="Hematocrit" class="text-danger"></span>
     </p>
     <p>
         <label asp-for="WhiteBloodCellCount">White blood cell counts (10<sup>9</sup> cells/L):</label>
-        <input asp-for="WhiteBloodCellCount" style="width: 50px">
+        <input asp-for="WhiteBloodCellCount" style="width: 50px" placeholder=@Model.WhiteBloodCellCount></p>
         <span asp-validation-for="WhiteBloodCellCount" class="text-danger"></span>
-    </p>
     <p>
         <label asp-for="RedBloodCellCount">Red blood cell counts (10<sup>12</sup> cells/L):</label>
-        <input asp-for="RedBloodCellCount" style="width: 50px">
+        <input asp-for="RedBloodCellCount" style="width: 50px" placeholder=@Model.RedBloodCellCount>
         <span asp-validation-for="RedBloodCellCount" class="text-danger"></span>
     </p>
-    <p><button type="submit" class="btn btn-outline-secondary">Add</button></p>   
+    <input type="hidden" asp-for="Id" />
+    <p><button type="submit" class="btn btn-outline-secondary">Save</button></p>
 </form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

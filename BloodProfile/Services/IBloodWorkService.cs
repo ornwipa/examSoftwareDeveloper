@@ -8,7 +8,8 @@ namespace BloodProfile.Services
     public interface IBloodWorkService
     {
         Task<BloodWork[]> GetBloodWorkAsync();
-        BloodWork GetSpecificBloodWorkAsync(Guid Id);
+        BloodWork GetSpecificBloodWork(Guid Id);
         Task<bool> AddRecordAsync(BloodWork newBloodWork);
+        Task<bool> EditRecordAsync(Guid Id, BloodWork selectedBloodWork);
     }
 }
