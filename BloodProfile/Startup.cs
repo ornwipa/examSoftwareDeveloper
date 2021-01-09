@@ -12,6 +12,7 @@ using BloodProfile.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BloodProfile.Services;
 
 namespace BloodProfile
 {
@@ -34,6 +35,8 @@ namespace BloodProfile
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
            services.AddRazorPages();
+           services.AddMvc();
+           services.AddSingleton<IBloodWorkService, TempBloodWorkService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
