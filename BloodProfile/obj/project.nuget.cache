@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X904b8lRIjJDZaK9n8LHz7SAuiuS126/vqbeGk1hDGNuG6k0Hj/r1hIP/h0D6hDDNR39cgz69nUBWLG1RvRMpg==",
+  "dgSpecHash": "2EBxfNtNrWd5etKRJf/tpI8Uz+jctyPRRoLAiLoVetiT8O6152bt8dq3V3dsiC2fTqdKbKgaJrxsH9YAR4vw1g==",
   "success": true,
-  "projectFilePath": "/home/ornwipa/Desktop/ComIT/medchart/BloodProfile/BloodProfile.csproj",
+  "projectFilePath": "/home/ornwipa/medchart/BloodProfile/BloodProfile.csproj",
   "expectedPackageFiles": [
     "/home/ornwipa/.nuget/packages/humanizer/2.8.26/humanizer.2.8.26.nupkg.sha512",
     "/home/ornwipa/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",

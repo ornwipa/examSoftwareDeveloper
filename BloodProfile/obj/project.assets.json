@@ -2785,11 +2785,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ornwipa/Desktop/ComIT/medchart/BloodProfile/BloodProfile.csproj",
+      "projectUniqueName": "/home/ornwipa/medchart/BloodProfile/BloodProfile.csproj",
       "projectName": "BloodProfile",
-      "projectPath": "/home/ornwipa/Desktop/ComIT/medchart/BloodProfile/BloodProfile.csproj",
+      "projectPath": "/home/ornwipa/medchart/BloodProfile/BloodProfile.csproj",
       "packagesPath": "/home/ornwipa/.nuget/packages/",
-      "outputPath": "/home/ornwipa/Desktop/ComIT/medchart/BloodProfile/obj/",
+      "outputPath": "/home/ornwipa/medchart/BloodProfile/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/ornwipa/.nuget/NuGet/NuGet.Config"
@@ -2857,7 +2857,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
       }
     }
   }
