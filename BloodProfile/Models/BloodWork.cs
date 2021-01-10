@@ -6,6 +6,7 @@ namespace BloodProfile.Models
     public class BloodWork
     {
         public Guid Id { get; set; }
+        // public string UserId { get; set; }
 
         [DataType(DataType.Date)]
         [CreatedDate(ErrorMessage = "Created date needs to be today or before.")]

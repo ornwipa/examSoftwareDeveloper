@@ -16,12 +16,6 @@ namespace BloodProfile.Services
             _context = context;
         }
 
-        /*public async Task<BloodWork[]> GetBloodWorkAsync()
-        {
-            var records = await _context.Records.ToArrayAsync();
-            return records;
-        }*/
-
         public async Task<BloodWork[]> GetBloodWorkAsync(string searchString, DateTime startDate, DateTime endDate)
         {
             var records = await _context.Records.ToArrayAsync();            

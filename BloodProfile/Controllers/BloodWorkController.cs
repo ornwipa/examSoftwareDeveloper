@@ -3,21 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using BloodProfile.Services;
 using BloodProfile.Models;
 
 namespace BloodProfile.Controllers
 {
+    // [Authorize]
     public class BloodWorkController : Controller
     {
         private readonly IBloodWorkService _bloodWorkService;
+        // private readonly UserManager<ApplicationUser> _userManager;
         public BloodWorkController(IBloodWorkService bloodWorkService)
+                                    //, UserManager<ApplicationUser> userManager)
         {
             _bloodWorkService = bloodWorkService;
+            // _userManager = userManager;
         }
 
         public async Task<IActionResult> Index(string searchString, DateTime startDate, DateTime endDate)
         {
+            // var currentUser = await _userManager.GetUserAsync(User);
+            // if (currentUser == null) return Challenge(); // ask the user to login again
+            
             // Get blood work records from database, including search
             var records = await _bloodWorkService.GetBloodWorkAsync(searchString, startDate, endDate);
 
