@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BloodProfile.Data.Migrations
 {
-    public partial class initialMigration : Migration
+    public partial class newMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace BloodProfile.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    DateCreated = table.Column<DateTimeOffset>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: false),
                     ExamDate = table.Column<DateTime>(nullable: false),
                     ResultsDate = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
