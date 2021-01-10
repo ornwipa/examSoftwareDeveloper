@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using BloodProfile.Services;
 using BloodProfile.Models;
+using Newtonsoft.Json;
 
 namespace BloodProfile.Controllers
 {
@@ -21,6 +22,8 @@ namespace BloodProfile.Controllers
             // _userManager = userManager;
         }
 
+        JsonSerializerSettings _jsonSetting = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore };
+
         public async Task<IActionResult> Index(string searchString, DateTime startDate, DateTime endDate)
         {
             // var currentUser = await _userManager.GetUserAsync(User);
@@ -34,6 +37,9 @@ namespace BloodProfile.Controllers
             {
                 Records = records
             };
+
+            // Create data points for line charts and put in the view bag
+            ViewBag.DataPoints = JsonConvert.SerializeObject(records.ToList(), _jsonSetting);
 
             // render view using the model     
             return View(model);

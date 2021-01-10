@@ -5,7 +5,7 @@
     ViewData["Title"] = "Your Blood Work";
 }
 
-<div class="panel panel-default todo-panel">
+<div class="panel panel-default record-panel">
   <div class="panel-heading"><b>@ViewData["Title"]</b></div>
 
   <table class="table table-hover">
@@ -45,7 +45,13 @@
 
   <hr>
 
-  <div class="panel-footer add-item-form">
+  <div class="panel-footer add-record-form">
     @await Html.PartialAsync("AddRecord", new BloodWork())
-  </div>
+  </div> 
+
+  <hr> 
+
+  <div class="panel-footer add-charts">
+    @await Html.PartialAsync("GraphLine", Model)
+  </div>  
 </div>

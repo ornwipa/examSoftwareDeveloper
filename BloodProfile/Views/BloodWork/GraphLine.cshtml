@@ -1,0 +1,99 @@
+<html>
+<head>
+<script type="text/javascript">
+window.onload = function () {
+
+var result = @Html.Raw(ViewBag.DataPoints);
+
+var dataPoints = [];
+for(var i = 0; i < result.length; i++){
+	dataPoints.push({"label":result[i].ExamDate, "y":result[i].Hemoglobin});
+}
+
+var chart = new CanvasJS.Chart("chartContainer1", {
+	theme: "light2", 
+	animationEnabled: true, 		
+	title:{
+		text: "Hemoglobin (g/dL)"
+	},
+	data: [
+	{
+		type: "line",
+		dataPoints: dataPoints,
+	}
+	]
+});
+chart.render();
+
+var dataPoints = [];
+for(var i = 0; i < result.length; i++){
+	dataPoints.push({"label":result[i].ExamDate, "y":result[i].Hematocrit});
+}
+
+var chart = new CanvasJS.Chart("chartContainer2", {
+	theme: "light2", 
+	animationEnabled: true, 		
+	title:{
+		text: "Hematocrit (%)"
+	},
+	data: [
+	{
+		type: "line",
+		dataPoints: dataPoints,
+	}
+	]
+});
+chart.render();
+
+var dataPoints = [];
+for(var i = 0; i < result.length; i++){
+	dataPoints.push({"label":result[i].ExamDate, "y":result[i].WhiteBloodCellCount});
+}
+
+var chart = new CanvasJS.Chart("chartContainer3", {
+	theme: "light2", 
+	animationEnabled: true, 		
+	title:{
+		text: "White Blood Cell Counts"
+	},
+	data: [
+	{
+		type: "line",
+		dataPoints: dataPoints,
+	}
+	]
+});
+chart.render();
+
+var dataPoints = [];
+for(var i = 0; i < result.length; i++){
+	dataPoints.push({"label":result[i].ExamDate, "y":result[i].RedBloodCellCount});
+}
+
+var chart = new CanvasJS.Chart("chartContainer4", {
+	theme: "light2", 
+	animationEnabled: true, 		
+	title:{
+		text: "Red Blood Cell Counts"
+	},
+	data: [
+	{
+		type: "line",
+		dataPoints: dataPoints,
+	}
+	]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer1" style="width: 44%; height: 300px;display: inline-block;"></div> 
+<div id="chartContainer2" style="width: 44%; height: 300px;display: inline-block;"></div>
+<div id="chartContainer3" style="width: 44%; height: 300px;display: inline-block;"></div> 
+<div id="chartContainer4" style="width: 44%; height: 300px;display: inline-block;"></div>
+</div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+</body>
+</html>
