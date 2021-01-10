@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BloodProfile.Models;
-using BloodProfile.Data;
 
 namespace BloodProfile.Services
 {
+    // Unused class for testing purpose prior to connecting to database
     public class DefaultBloodWorkService // : IBloodWorkService
     {
         BloodWork default_record = new BloodWork
