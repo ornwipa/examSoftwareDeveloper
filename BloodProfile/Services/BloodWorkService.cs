@@ -15,16 +15,33 @@ namespace BloodProfile.Services
         {
             _context = context;
         }
-        public async Task<BloodWork[]> GetBloodWorkAsync()
+
+        /*public async Task<BloodWork[]> GetBloodWorkAsync()
         {
             var records = await _context.Records.ToArrayAsync();
             return records;
+        }*/
+
+        public async Task<BloodWork[]> GetBloodWorkAsync(string searchString, DateTime startDate, DateTime endDate)
+        {
+            var records = await _context.Records.ToArrayAsync();            
+            if (!String.IsNullOrEmpty(searchString))
+            {                
+                records = records.Where(x => x.Description.Contains(searchString)).ToArray();
+            }
+            if (startDate != DateTime.MinValue && endDate != DateTime.MinValue)
+            {
+                records = records.Where(x => x.ExamDate > startDate && x.ExamDate < endDate).ToArray();
+            }
+            return records;
         }
+
         public BloodWork GetSpecificBloodWork(Guid Id)
         {
             var record = _context.Records.Where(x => x.Id == Id).FirstOrDefault();
             return record;
         }
+
         public async Task<bool> AddRecordAsync(BloodWork newBloodWork)
         {
             newBloodWork.Id = Guid.NewGuid();
@@ -32,6 +49,7 @@ namespace BloodProfile.Services
             var saveResult = await _context.SaveChangesAsync();
             return saveResult == 1;
         }       
+
         public async Task<bool> EditRecordAsync(Guid Id, BloodWork selectedBloodWork)
         {
             var record = _context.Records.Where(x => x.Id == Id).FirstOrDefault();

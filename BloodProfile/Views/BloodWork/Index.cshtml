@@ -29,8 +29,21 @@
                 <input type="button" value="Edit" onclick="location.href='@Url.Action("EditRecord", "BloodWork", new { Id = item.Id })'" />
               </td>
           </tr>
-      }<hr>
+      }
   </table>
+
+  <div>
+    <b>Search Blood Works</b>
+    <form asp-controller="BloodWork" asp-action="Index" method="get">
+      <p>
+        Exam Date: From <input type="date" name="StartDate"> To <input type="date" name="EndDate">
+        Description: <input type="text" name="SearchString">        
+        <input type="submit" value="Filter" />
+      </p> 
+    </form>
+  </div>  
+
+  <hr>
 
   <div class="panel-footer add-item-form">
     @await Html.PartialAsync("AddRecord", new BloodWork())

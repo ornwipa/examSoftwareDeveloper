@@ -16,10 +16,10 @@ namespace BloodProfile.Controllers
             _bloodWorkService = bloodWorkService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, DateTime startDate, DateTime endDate)
         {
-            // Get blood work records from database
-            var records = await _bloodWorkService.GetBloodWorkAsync();
+            // Get blood work records from database, including search
+            var records = await _bloodWorkService.GetBloodWorkAsync(searchString, startDate, endDate);
 
             // Put records into a model
             var model = new BloodWorkList()
@@ -76,7 +76,7 @@ namespace BloodProfile.Controllers
             var successful = await _bloodWorkService.EditRecordAsync(Id, selectedBloodWork);
             if (!successful)
             {
-                return BadRequest("Invalid input for data type.");
+                return BadRequest("Invalid data");
             }
             return RedirectToAction("Index");
         }
