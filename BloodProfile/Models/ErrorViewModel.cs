@@ -1,5 +1,3 @@
-using System;
-
 namespace BloodProfile.Models
 {
     public class ErrorViewModel
