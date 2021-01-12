@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import ReactDOM from 'react-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
+import { AppContainer } from 'react-hot-loader';
 import './App.css';
+import 'bootstrap';
+import axios from 'axios';
+import * as RoutesModule from './routes';
+let routes = RoutesModule.routes;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href')!;
+  ReactDOM.render(
+      <AppContainer>
+          <BrowserRouter children={ routes } basename={ baseUrl } />
+      </AppContainer>,
+      document.getElementById('client-app')
   );
 }
 
