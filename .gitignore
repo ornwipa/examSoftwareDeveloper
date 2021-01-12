@@ -2,3 +2,10 @@ BloodProfile/*.cache
 BloodProfile/.vscode/
 BloodProfile/bin/
 BloodProfile/obj/
+archive/
+instruction/
+figures/
+resubmission/
+submission/
+*.zip
+BloodProfile/client-app/.eslintcache
