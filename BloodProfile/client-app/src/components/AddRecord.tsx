@@ -1,7 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Link, NavLink } from 'react-router-dom';
-import { FetchRecord, BloodWork } from './FetchRecord';
+import { BloodWork } from './FetchRecord';
 
 interface AddRecordDataState {
     title: string;
@@ -12,17 +11,17 @@ interface AddRecordDataState {
 export class AddRecord extends React.Component<RouteComponentProps<{}>, AddRecordDataState> {
     constructor(props: any) {
         super(props);
-        this.state = { title: "", loading: true, empData: new BloodWork };
+        this.state = { title: "", loading: true, empData: new BloodWork() };
         var recordid = this.props.match.params["Id"];
         if (recordid) {
-            fetch('api/BloodWork/Details' + recordid)
+            fetch('api/bloodwork/Details/' + recordid)
             .then(response => response.json() as Promise<BloodWork>)
             .then(data => {
                 this.setState({ title: "Edit", loading: false, empData: data })
             })
         }
         else {
-            this.state = { title: "Create", loading: false, empData: new BloodWork }
+            this.state = { title: "Create", loading: false, empData: new BloodWork() }
         }        
         this.handleCancel = this.handleCancel.bind(this);
         this.handleSave = this.handleSave.bind(this);
@@ -30,28 +29,28 @@ export class AddRecord extends React.Component<RouteComponentProps<{}>, AddRecor
 
     private handleCancel(event: any) {
         event.preventDefault();
-        this.props.history.push("/Index");
+        this.props.history.push("bloodwork");
     }
 
     private handleSave(event: any) {
         event.preventDefault();
         const data = new FormData(event.target);
         if (this.state.empData.Id) {
-            fetch("api/BloodWork/EditRecord", {
+            fetch("api/bloodwork/EditRecord", {
                 method: 'PUT',
                 body: data,
             }).then((response) => response.json())
             .then((responseJson) => {
-                this.props.history.push("Index");
+                this.props.history.push("bloodwork");
             })
         }
         else {
-            fetch("api/BloodWork/AddRecord", {
+            fetch("api/bloodwork/AddRecord", {
                 method: 'POST',
                 body: data,
             }).then((response) => response.json())
             .then((responseJson) => {
-                this.props.history.push("Index");
+                this.props.history.push("bloodwork");
             })
         }
     }

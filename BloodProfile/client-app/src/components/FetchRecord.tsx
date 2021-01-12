@@ -24,7 +24,7 @@ export class FetchRecord extends React.Component<RouteComponentProps<{}>, FetchR
     constructor(props: any) {
         super(props);
         this.state = { empList: [], loading: true };
-        fetch('api/BloodWork/Index')
+        fetch('api/bloodwork')
         .then(response => response.json() as Promise<BloodWork[]>)
         .then(data => {
             this.setState({ empList: data, loading: false });
@@ -33,7 +33,7 @@ export class FetchRecord extends React.Component<RouteComponentProps<{}>, FetchR
     }
 
     private handleEdit(Id: Guid) {
-        this.props.history.push("BloodWork/EditRecord" + Id)
+        this.props.history.push("bloodwork/EditRecord/" + Id)
     }
 
     public render() {
@@ -43,7 +43,7 @@ export class FetchRecord extends React.Component<RouteComponentProps<{}>, FetchR
         return <div>
             <h1>Your Blood Work</h1>
             <p>
-                <Link to="/AddRecord">Create New Blood Work</Link>
+                <Link to="bloodwork/AddRecord/">Create New Blood Work</Link>
             </p>
             { contents }
         </div>

@@ -17,8 +17,10 @@ reportWebVitals();
 
 import { Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
-import { FetchRecord } from './components/FetchRecord';
+/*
+import { BloodWork, BloodWorkList } from './components/BloodWork';
+*/
 
 export const routes = <Layout>
-    <Route path='/fetchrecord' component={FetchRecord} />
+    <Route path='api/bloodwork' />
 </Layout>;
