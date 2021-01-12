@@ -2,3 +2,8 @@ BloodProfile/*.cache
 BloodProfile/.vscode/
 BloodProfile/bin/
 BloodProfile/obj/
+archive/
+instruction/
+figures/
+submission/
+*.zip

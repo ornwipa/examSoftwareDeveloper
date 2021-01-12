@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Guid } from "guid-typescript";
 
 interface FetchRecordDataState {
@@ -45,6 +45,7 @@ export class FetchRecord extends React.Component<RouteComponentProps<{}>, FetchR
             <p>
                 <Link to="/AddRecord">Create New Blood Work</Link>
             </p>
+            { contents }
         </div>
     }
 
